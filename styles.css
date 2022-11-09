@@ -21,8 +21,12 @@ input {
 
 .load {
   display: flex;
-  justify-content: column;
+  flex-direction: column;
   align-items: flex-start;
+}
+
+.load-section {
+  display: flex;
 }
 
 .glow {
