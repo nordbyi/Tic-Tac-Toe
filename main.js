@@ -7,11 +7,16 @@ var nameInput = document.querySelector('#nameInput')
 var friendForm = document.querySelector('#friendForm')
 var friend = document.querySelector('.friend')
 var friendInput = document.querySelector('#friendInput')
+var beginGame = document.querySelector('.begin')
 
 typewriter(shallWe.innerText, shallWe, 0)
 
 loadInputForm.addEventListener('submit', askUserName)
-userNameForm.addEventListener('submit', startGame)
+userNameForm.addEventListener('submit', askFriend)
+friendForm.addEventListener('submit', nameFriend)
+
+var player1Name
+var player2
 
 function typewriter(text, html, i) {
   if(i <= text.length) {
@@ -33,13 +38,24 @@ function askUserName() {
     loadInput.value = ''
     typewriter('THEN I SHALL PLAY: GLOBAL THERMONUCLEAR WAR BY MYSELF. GOODBYE.', shallWe, 0)
   }
+  loadInputForm.disabled()
 }
 
-function startGame() {
+function askFriend() {
   event.preventDefault()
-  // use name to instatiate player 1 class
   friendForm.classList.toggle('hidden')
   friendInput.focus()
   // dynamically add player 1 name to friend.innerText
   typewriter(friend.innerText, friend, 0)
+}
+
+function nameFriend() {
+  event.preventDefault()
+  if(event.target.children[1].value === 'y') {
+    
+  }
+  // use name to instatiate player 1 class
+  beginGame.classList.toggle('hidden')
+  typewriter(beginGame.innerText, beginGame, 0)
+  // timeout(display game board)
 }
