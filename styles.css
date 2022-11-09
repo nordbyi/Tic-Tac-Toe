@@ -1,0 +1,40 @@
+* {
+  font-family: 'VT323', monospace;
+}
+
+body {
+  background-color: black;
+  /* border: solid 1px white; */
+}
+
+input {
+  background: black;
+  text-transform: uppercase;
+  
+  width: 60px;
+  caret-color: rgb(135, 203, 249);
+  color: rgb(135, 203, 249);
+  outline: none;
+  border: none;
+  margin: 10px;
+}
+
+.load {
+  display: flex;
+  justify-content: column;
+  align-items: flex-start;
+}
+
+.glow {
+  font-size: 40px;
+  color: rgb(207, 229, 244);
+  text-shadow:
+      0 0 7px rgb(135, 203, 249),
+      0 0 10px rgb(135, 203, 249),
+      0 0 42px rgb(0, 89, 255),
+      0 0 69px rgb(0, 89, 255),
+      0 0 95px rgb(0, 89, 255),
+      0 0 110px rgb(0, 229, 255),
+      0 0 120px rgb(0, 229, 255);
+  }
+
