@@ -10,8 +10,7 @@ body {
 input {
   background: black;
   text-transform: uppercase;
-  
-  width: 60px;
+  width: 300px;
   caret-color: rgb(135, 203, 249);
   color: rgb(135, 203, 249);
   outline: none;
