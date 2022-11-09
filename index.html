@@ -11,14 +11,14 @@
     <title>War Games</title>
   </head>
   <load-screen class="load">
-    <div class="load-section">
-      <p class="glow test">SHALL WE PLAY A GAME?</p>
-      <input class="glow" autofocus maxlength="3">
-    </div>
-    <div class="load-section hidden">
-      <p class="glow">GREETINGS PROFESSOR:</p>
-      <input class="glow" autofocus maxlength="3">
-    </div>
+    <form class="load-section" id="loadInputForm">
+      <p class="glow shall-we">SHALL WE PLAY A GAME?</p>
+      <input class="glow" id="loadInput" autofocus maxlength="3">
+    </form>
+    <form class="load-section hidden" id="user-name-form">
+      <p class="glow greetings">GREETINGS PROFESSOR:</p>
+      <input class="glow" id="nameInput" autofocus maxlength="12">
+    </form>
   </load-screen>
   <body>
     <p>Would you like to play a game?</p>
