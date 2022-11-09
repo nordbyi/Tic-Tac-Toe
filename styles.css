@@ -42,3 +42,6 @@ input {
       0 0 120px rgb(0, 229, 255);
   }
 
+.hidden {
+  display: none;
+}
