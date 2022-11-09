@@ -1,10 +1,21 @@
 * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: 'VT323', monospace;
+
 }
 
 body {
   background-color: black;
+  background-image: url('./assets/Blank_map_political_world_territories.png');
+  background-repeat: no-repeat;
   /* border: solid 1px white; */
+}
+
+load-screen {
+  background-color: black;
+  
 }
 
 input {
