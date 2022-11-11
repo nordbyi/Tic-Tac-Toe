@@ -35,7 +35,11 @@ class Game {
     }
   }
 
-  checkForTie() {}
+  checkForTie() {
+    if(this.board.every(el => el.token !== null)) {
+      return true
+    }
+  }
 
   reset() {
     this.board = 
