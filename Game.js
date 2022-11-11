@@ -59,6 +59,7 @@ class Game {
       if(this.winningIndices[i].every(el => currPlayerIndices.includes(el))) {
         this.onWin()
         console.log(`${this.currPlayer.name} Wins!`)
+        return true
         // game win update data model function?
         // return true to break out of checking for tie if checking for tie in same place?
       }
@@ -76,10 +77,11 @@ class Game {
   }
 
   reset() {
-    this.board = 
-    [0, 1, 2,
-     3, 4, 5,
-     6, 7, 8]
+    this.board = [
+    {index: 0, token: null}, {index: 1, token: null}, {index: 2, token: null},
+    {index: 3, token: null}, {index: 4, token: null}, {index: 5, token: null},
+    {index: 6, token: null}, {index: 7, token: null}, {index: 8, token: null}
+    ]
     
     // this.changeTurn()
     // update DOM in main.js
