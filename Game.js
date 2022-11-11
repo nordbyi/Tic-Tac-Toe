@@ -23,6 +23,10 @@ class Game {
     ]
   }
 
+  updateBoard(index) {
+    this.board[index].token = this.currPlayer.token
+  }
+
   changeTurn() {
     this.currPlayer = this.currPlayer === this.player1 ? this.player2 : this.player1
   }
