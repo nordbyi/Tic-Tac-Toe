@@ -23,9 +23,28 @@ class Game {
     ]
   }
 
+  executeTurn(index) {
+    if(this.updateBoard(index)) {
+      if(this.checkForWin()) {
+        // win logic
+        //put this.reset(in setTimeout())
+        this.reset()
+      }
+      if(this.checkForTie()) {
+        // tie logic
+        //put this.reset(in setTimeout())
+        this.reset
+      }
+      this.changeTurn()
+    }
+    console.log(this.board)
+
+  }
+
   updateBoard(index) {
     if(this.board[index].token === null) {
       this.board[index].token = this.currPlayer.token
+      return true
     }
   }
 
@@ -35,7 +54,7 @@ class Game {
 
   checkForWin() {
     var currPlayerIndices = this.board.filter(el => el.token === this.currPlayer.token).map(el => el.index)
-    console.log(currPlayerIndices)
+    // console.log(currPlayerIndices)
     for (var i = 0; i < this.winningIndices.length; i++) {
       if(this.winningIndices[i].every(el => currPlayerIndices.includes(el))) {
         this.onWin()
