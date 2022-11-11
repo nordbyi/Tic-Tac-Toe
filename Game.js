@@ -24,13 +24,12 @@ class Game {
   }
 
   executeTurn(index) {
-    if(this.updateBoard(index)) {
-      if(this.checkForWin()) {
+    if (this.updateBoard(index)) {
+      if (this.checkForWin()) {
         // win logic
         //put this.reset(in setTimeout())
         this.reset()
-      }
-      if(this.checkForTie()) {
+      } else if (this.checkForTie()) {
         // tie logic
         //put this.reset(in setTimeout())
         this.reset()
@@ -42,7 +41,7 @@ class Game {
   }
 
   updateBoard(index) {
-    if(this.board[index].token === null) {
+    if (this.board[index].token === null) {
       this.board[index].token = this.currPlayer.token
       return true
     }
@@ -56,8 +55,8 @@ class Game {
     var currPlayerIndices = this.board.filter(el => el.token === this.currPlayer.token).map(el => el.index)
     // console.log(currPlayerIndices)
     for (var i = 0; i < this.winningIndices.length; i++) {
-      if(this.winningIndices[i].every(el => currPlayerIndices.includes(el))) {
-        this.currPlayer.increaseWins()
+      if (this.winningIndices[i].every(el => currPlayerIndices.includes(el))) {
+        this.currPlayer.increaseWins() // do I want this here on in executeTurn in checkForWin() if statment?
 
         console.log(`${this.currPlayer.name} Wins!`)
         return true
@@ -66,7 +65,7 @@ class Game {
   }
 
   checkForTie() {
-    if(this.board.every(el => el.token !== null)) {
+    if (this.board.every(el => el.token !== null)) {
       console.log('It\'s a tie!')
       return true
     }
