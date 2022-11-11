@@ -4,6 +4,7 @@ class Game {
     // this.player2 = player2
     this.player1 = new Player('Turtle', 0, 'X')
     this.player2 = new Player('Dolphin', 1, 'O')
+    this.startingPlayer = this.player1
     this.currPlayer = this.player1
     this.board = [
     {index: 0, token: null}, {index: 1, token: null}, {index: 2, token: null},
@@ -29,12 +30,14 @@ class Game {
         // win logic
         //put this.reset(in setTimeout())
         this.reset()
+        return
       } else if (this.checkForTie()) {
         // tie logic
         //put this.reset(in setTimeout())
         this.reset()
+        return
       }
-      this.changeTurn()
+      this.changePlayer('currPlayer')
     }
     console.log(this.board)
 
@@ -47,16 +50,22 @@ class Game {
     }
   }
 
-  changeTurn() {
-    this.currPlayer = this.currPlayer === this.player1 ? this.player2 : this.player1
+  changePlayer(state) {
+    if (this[state] === this.player1) {
+      this[state] = this.player2
+    } else this[state] = this.player1
   }
+
+  // changeTurn() {
+  //   this.currPlayer = this.currPlayer === this.player1 ? this.player2 : this.player1
+  // }
 
   checkForWin() {
     var currPlayerIndices = this.board.filter(el => el.token === this.currPlayer.token).map(el => el.index)
     // console.log(currPlayerIndices)
     for (var i = 0; i < this.winningIndices.length; i++) {
       if (this.winningIndices[i].every(el => currPlayerIndices.includes(el))) {
-        this.currPlayer.increaseWins() // do I want this here on in executeTurn in checkForWin() if statment?
+        this.currPlayer.increaseWins() // do I want this here or in executeTurn in checkForWin() if statment?
 
         console.log(`${this.currPlayer.name} Wins!`)
         return true
@@ -77,7 +86,11 @@ class Game {
     {index: 3, token: null}, {index: 4, token: null}, {index: 5, token: null},
     {index: 6, token: null}, {index: 7, token: null}, {index: 8, token: null}
     ]
+    this.changePlayer('startingPlayer')
+    console.log('starting player: ', this.startingPlayer)
     
+    this.currPlayer = this.startingPlayer
+    console.log('current player: ', this.currPlayer)
     // this.changeTurn()
     // update DOM in main.js
   }
