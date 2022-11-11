@@ -61,8 +61,6 @@ class Game {
 
         console.log(`${this.currPlayer.name} Wins!`)
         return true
-        // game win update data model function?
-        // return true to break out of checking for tie if checking for tie in same place?
       }
     }
   }
