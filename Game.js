@@ -33,7 +33,7 @@ class Game {
       if(this.checkForTie()) {
         // tie logic
         //put this.reset(in setTimeout())
-        this.reset
+        this.reset()
       }
       this.changeTurn()
     }
@@ -57,7 +57,8 @@ class Game {
     // console.log(currPlayerIndices)
     for (var i = 0; i < this.winningIndices.length; i++) {
       if(this.winningIndices[i].every(el => currPlayerIndices.includes(el))) {
-        this.onWin()
+        this.currPlayer.increaseWins()
+
         console.log(`${this.currPlayer.name} Wins!`)
         return true
         // game win update data model function?
@@ -68,12 +69,9 @@ class Game {
 
   checkForTie() {
     if(this.board.every(el => el.token !== null)) {
+      console.log('It\'s a tie!')
       return true
     }
-  }
-
-  onWin() {
-    this.currPlayer.increaseWins()
   }
 
   reset() {
