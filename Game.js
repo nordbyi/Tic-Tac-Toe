@@ -6,7 +6,7 @@ class Game {
     [0, 1, 2,
      3, 4, 5,
      6, 7, 8]
-     
+
     this.winningIndices = 
     [
      [0, 1, 2],
@@ -30,5 +30,13 @@ class Game {
 
   checkForTie() {}
 
-  reset() {}
+  reset() {
+    this.board = 
+    [0, 1, 2,
+     3, 4, 5,
+     6, 7, 8]
+    
+    // this.changeTurn()
+    // update DOM in main.js
+  }
 }
