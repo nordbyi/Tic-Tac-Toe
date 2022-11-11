@@ -39,6 +39,9 @@ function askUserName() {
   } else if (event.target.children[1].value === 'n') {
     loadInput.value = ''
     typewriter('THEN I SHALL PLAY: GLOBAL THERMONUCLEAR WAR BY MYSELF. GOODBYE.', shallWe, 0)
+    setTimeout(function() {
+      window.location.reload()
+    }, 7000)
   }
   loadInputForm.disabled()
 }
