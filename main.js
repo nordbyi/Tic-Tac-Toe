@@ -8,6 +8,8 @@ var friendForm = document.querySelector('#friendForm')
 var friend = document.querySelector('.friend')
 var friendInput = document.querySelector('#friendInput')
 var beginGame = document.querySelector('.begin')
+var loadScreen = document.querySelector('.load')
+var body = document.querySelector('body')
 
 typewriter(shallWe.innerText, shallWe, 0)
 
@@ -57,5 +59,13 @@ function nameFriend() {
   // use name to instatiate player 1 class
   beginGame.classList.toggle('hidden')
   typewriter(beginGame.innerText, beginGame, 0)
-  // timeout(display game board)
+  setTimeout(function() {
+    startGame()
+    console.log('got here')
+  }, 3000)
+}
+
+function startGame() {
+  loadScreen.classList.toggle('hidden')
+  // body.classList.toggle('hidden')
 }
