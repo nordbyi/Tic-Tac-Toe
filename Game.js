@@ -24,7 +24,9 @@ class Game {
   }
 
   updateBoard(index) {
-    this.board[index].token = this.currPlayer.token
+    if(this.board[index].token === null) {
+      this.board[index].token = this.currPlayer.token
+    }
   }
 
   changeTurn() {
