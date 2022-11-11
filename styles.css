@@ -6,12 +6,7 @@
 
 }
 
-body {
-  background-color: black;
-  background-image: url('./assets/World_Map_glow.svg');
-  background-repeat: no-repeat;
-  background-size: 1435px;
-}
+/* loading */
 
 load-screen {
   background-color: black;
@@ -26,7 +21,9 @@ input {
   color: rgb(135, 203, 249);
   outline: none;
   border: none;
-  margin: 10px;
+  /* margin: 10px; */
+  margin-left: 10px;
+  margin-bottom: 40px;
 }
 
 .load {
@@ -39,17 +36,24 @@ input {
   display: flex;
 }
 
+body {
+  background-color: black;
+  background-image: url('./assets/World_Map_glow.svg');
+  background-repeat: no-repeat;
+  background-size: 1425px;
+}
+
 .glow {
-  font-size: 40px;
+  font-size: 30px;
   color: rgb(207, 229, 244);
   text-shadow:
-      0 0 7px rgb(135, 203, 249),
-      0 0 10px rgb(135, 203, 249),
-      0 0 42px rgb(0, 89, 255),
-      0 0 69px rgb(0, 89, 255),
-      0 0 95px rgb(0, 89, 255),
-      0 0 110px rgb(0, 229, 255),
-      0 0 120px rgb(0, 229, 255);
+      0 0 2px rgb(135, 203, 249),
+      0 0 4px rgb(135, 203, 249),
+      0 0 10px rgb(0, 89, 255),
+      0 0 25px rgb(0, 89, 255),
+      0 0 35px rgb(0, 89, 255),
+      0 0 57px rgb(0, 229, 255)
+      /* 0 0 70px rgb(0, 229, 255) */
   }
 
 .hidden {
