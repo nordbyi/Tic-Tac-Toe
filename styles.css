@@ -8,14 +8,14 @@
 
 body {
   background-color: black;
-  background-image: url('./assets/Blank_map_political_world_territories.png');
+  background-image: url('./assets/World_Map_glow.svg');
   background-repeat: no-repeat;
-  /* border: solid 1px white; */
+  background-size: 1435px;
 }
 
 load-screen {
   background-color: black;
-  
+  height: 100vh;
 }
 
 input {
