@@ -18,11 +18,12 @@ userNameForm.addEventListener('submit', askFriend)
 friendForm.addEventListener('submit', nameFriend)
 
 var player1Name
-var player2
+var player2Name
+var game = new Game()
 
 function typewriter(text, html, i) {
   if(i <= text.length) {
-    console.log(text.substring(0, i))
+    // console.log(text.substring(0, i))
     html.innerText = text.substring(0, i)
     setTimeout(function() {
       typewriter(text, html, i + 1)
