@@ -43,6 +43,9 @@ body {
   background-size: 1425px;
 }
 
+/* Do i need to use a .glow class if everything glowing is text? */
+/* does .glow work with non-text elements? */
+p, 
 .glow {
   font-size: 30px;
   color: rgb(207, 229, 244);
@@ -54,7 +57,7 @@ body {
       0 0 35px rgb(0, 89, 255),
       0 0 57px rgb(0, 229, 255)
       /* 0 0 70px rgb(0, 229, 255) */
-  }
+}
 
 .hidden {
   display: none;
