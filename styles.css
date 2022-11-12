@@ -48,7 +48,7 @@ body {
 p, 
 .glow {
   font-size: 30px;
-  color: rgb(207, 229, 244);
+  color: rgb(254, 254, 254);
   text-shadow:
       0 0 2px rgb(135, 203, 249),
       0 0 4px rgb(135, 203, 249),
@@ -61,4 +61,26 @@ p,
 
 .hidden {
   display: none;
+}
+
+test-box {
+  display: block;
+  height: 450px;
+  width: 600px;
+  margin: 20px;
+  border: solid 2px white;
+  background-color: rgb(0, 0, 0);
+  box-shadow: 
+      0 0 2px rgb(135, 203, 249),
+      0 0 4px rgb(135, 203, 249),
+      0 0 7px rgb(0, 89, 255),
+      0 0 12px rgb(0, 89, 255),
+      0 0 16px rgb(0, 89, 255),
+      0 0 20px rgb(0, 229, 255),
+      inset 0 0 2px rgb(135, 203, 249),
+      inset 0 0 4px rgb(135, 203, 249),
+      inset 0 0 7px rgb(0, 89, 255),
+      inset 0 0 12px rgb(0, 89, 255),
+      inset 0 0 16px rgb(0, 89, 255),
+      inset 0 0 20px rgb(0, 229, 255);
 }
