@@ -6,6 +6,7 @@ class Game {
     this.player2 = new Player('Dolphin', 1, 'O')
     this.startingPlayer = this.player1
     this.currPlayer = this.player1
+    this.gameState = 'ongoing'
     this.board = [
     {index: 0, token: null}, {index: 1, token: null}, {index: 2, token: null},
     {index: 3, token: null}, {index: 4, token: null}, {index: 5, token: null},
@@ -51,10 +52,10 @@ class Game {
     }
   }
 
-  changePlayer(state) {
-    if (this[state] === this.player1) {
-      this[state] = this.player2
-    } else this[state] = this.player1
+  changePlayer(propertyStr) {
+    if (this[propertyStr] === this.player1) {
+      this[propertyStr] = this.player2
+    } else this[propertyStr] = this.player1
   }
 
   // changeTurn() {
@@ -90,6 +91,8 @@ class Game {
     
     this.currPlayer = this.startingPlayer
     console.log('current player: ', this.currPlayer)
+
+    this.gameState = 'ongoing'
     // this.changeTurn()
     // update DOM in main.js
   }
