@@ -26,27 +26,27 @@ class Game {
   }
 
   executeTurn(index) {
-    if (this.updateBoard(index)) {
-      if (this.checkForWin()) {
-        this.currPlayer.increaseWins()
-        // win logic
-        //put this.reset(in setTimeout())
+    if (!this.updateBoard(index)) return
+    if (this.checkForWin()) {
+      this.currPlayer.increaseWins()
+      // win logic
+      //put this.reset(in setTimeout())
 
-        // setTimeout(function {
-        //   this.reset()
-        //   re-renderFunction() // passed into executeTurn(index, renderFunction) might need to store function in a variable
-        // }, 5000)
+      // setTimeout(function {
+      //   this.reset()
+      //   re-renderFunction() // passed into executeTurn(index, renderFunction) might need to store function in a variable
+      // }, 5000)
 
-        this.reset()
-        return
-      } else if (this.checkForTie()) {
-        // tie logic
-        //put this.reset(in setTimeout())
-        this.reset()
-        return
-      }
-      this.changePlayer('currPlayer')
+      this.reset()
+      return
+    } else if (this.checkForTie()) {
+      // tie logic
+      //put this.reset(in setTimeout())
+      this.reset()
+      return
+    
     }
+    this.changePlayer('currPlayer')
     console.log(this.board)
 
   }
@@ -55,7 +55,7 @@ class Game {
     if (this.board[index].token === null) {
       this.board[index].token = this.currPlayer.token
       return true
-    }
+    } // might need to return false if I'm running into problems later
   }
 
   changePlayer(propertyStr) {
