@@ -27,6 +27,7 @@ class Game {
   executeTurn(index) {
     if (this.updateBoard(index)) {
       if (this.checkForWin()) {
+        this.currPlayer.increaseWins()
         // win logic
         //put this.reset(in setTimeout())
         this.reset()
@@ -65,8 +66,6 @@ class Game {
     // console.log(currPlayerIndices)
     for (var i = 0; i < this.winningIndices.length; i++) {
       if (this.winningIndices[i].every(el => currPlayerIndices.includes(el))) {
-        this.currPlayer.increaseWins() // do I want this here or in executeTurn in checkForWin() if statment?
-
         console.log(`${this.currPlayer.name} Wins!`)
         return true
       }
