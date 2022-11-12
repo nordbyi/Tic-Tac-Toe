@@ -31,6 +31,12 @@ class Game {
         this.currPlayer.increaseWins()
         // win logic
         //put this.reset(in setTimeout())
+
+        // setTimeout(function {
+        //   this.reset()
+        //   re-renderFunction() // passed into executeTurn(index, renderFunction) might need to store function in a variable
+        // }, 5000)
+
         this.reset()
         return
       } else if (this.checkForTie()) {
