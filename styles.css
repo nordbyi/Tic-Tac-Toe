@@ -34,6 +34,7 @@
 load-screen {
   background-color: black;
   height: 100vh;
+  width: 100vw;
 }
 
 input {
@@ -114,25 +115,17 @@ main {
   /* place-items: center; */
   grid-template-columns: repeat(3, 155px);
   grid-template-rows: repeat(3, 140px);
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
   /* box-shadow: var(--border-glow-effect) */
   padding: 20px;
   text-align: center;
 }
 
 .game-square {
-  /* background: black; */
-  /* border: 2px solid white;
-  box-shadow: var(--border-glow-effect) */
+  padding-top: 33px;
+  /* border: 1px solid red; */
 }
-
-/* .top-left,
-.top-middle,
-.center-left,
-.center-middle {
-  border-right: 2px solid white;
-  /* box-shadow: var(--border-glow-effect) */
 
 .hidden {
   display: none;
