@@ -29,6 +29,7 @@ class Game {
     if (!this.updateBoard(index)) return
     if (this.checkForWin()) {
       this.currPlayer.increaseWins()
+      // change gameState
       // win logic
       //put this.reset(in setTimeout())
 
@@ -38,17 +39,18 @@ class Game {
       // }, 5000)
 
       this.reset()
-      return
+      return // return true to only rerender on successful move?
     } else if (this.checkForTie()) {
+      // change gameState
       // tie logic
       //put this.reset(in setTimeout())
       this.reset()
-      return
+      return // return true to only rerender on successful move?
     
     }
     this.changePlayer('currPlayer')
     console.log(this.board)
-
+    // return true to only rerender on successful move?
   }
 
   updateBoard(index) {
@@ -99,7 +101,5 @@ class Game {
     console.log('current player: ', this.currPlayer)
 
     this.gameState = 'ongoing'
-    // this.changeTurn()
-    // update DOM in main.js
   }
 }
