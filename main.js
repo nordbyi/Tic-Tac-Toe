@@ -25,6 +25,8 @@ loadInputForm.addEventListener('submit', askUserName)
 userNameForm.addEventListener('submit', askFriend)
 friendForm.addEventListener('submit', nameFriend)
 
+gameBoard.addEventListener('click', playGame)
+
 var player1Name
 var player2Name // connect these
 var game = new Game(player1Name, player2Name)
@@ -87,6 +89,13 @@ function startGame() {
 
 // play game then update DOM
 
+function playGame() {
+  var index = +event.target.closest('.game-square').dataset.index
+  console.log(index)
+  game.executeTurn(index)
+  renderDOM()
+}
+
 function renderDOM() {
   updateGameInfoDOM()
   updateGameBoardDOM()
@@ -94,9 +103,9 @@ function renderDOM() {
 
 function updateGameInfoDOM(player) {
   player1Info.children[0].innerText = game.player1.name
-  player1Info.children[1].innerText = `${game.player1.wins} Win${game.player1.wins !== 1 && 's'}`
+  player1Info.children[1].innerText = `${game.player1.wins} Win${game.player1.wins !== 1 ? 's' : ''}`
   player2Info.children[0].innerText = game.player2.name
-  player2Info.children[1].innerText = `${game.player2.wins} Win${game.player2.wins !== 1 && 's'}`
+  player2Info.children[1].innerText = `${game.player2.wins} Win${game.player2.wins !== 1 ? 's' : ''}`
   // switch block
   console.log(player1Info.children[0].innerText)
 
@@ -105,7 +114,7 @@ function updateGameInfoDOM(player) {
       gameState.innerHTML = `<p>${game.currPlayer.name}'s Turn</p>`
       break
     case 'win':
-      gameState.innerHTML = `<p>${this.currPlayer.name} Wins!</p>`
+      gameState.innerHTML = `<p>${game.currPlayer.name} Wins!</p>`
       break
     case 'tie':
       gameState.innerHTML = `<p>It's a Tie!</p>`
