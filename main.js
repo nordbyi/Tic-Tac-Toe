@@ -94,6 +94,11 @@ function playGame() {
   console.log(index)
   game.executeTurn(index)
   renderDOM()
+  if(game.gameState !== 'ongoing') {
+    setTimeout(function() {
+    renderDOM()
+  }, 3000)
+}
 }
 
 function renderDOM() {
@@ -107,7 +112,6 @@ function updateGameInfoDOM(player) {
   player2Info.children[0].innerText = game.player2.name
   player2Info.children[1].innerText = `${game.player2.wins} Win${game.player2.wins !== 1 ? 's' : ''}`
   // switch block
-  console.log(player1Info.children[0].innerText)
 
   switch(game.gameState) {
     case 'ongoing':
@@ -122,11 +126,9 @@ function updateGameInfoDOM(player) {
 }
 
 function updateGameBoardDOM() {
-  console.log(gameBoard.children[0].innerText)
   game.board.forEach((el, i) => {
     gameBoard.children[i].innerHTML = `<h1>${el.token ? el.token: ''}</h1>`
   })
-  console.log(gameBoard.children[0].innerText)
 }
 
 renderDOM()
