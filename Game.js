@@ -27,8 +27,10 @@ class Game {
 
   executeTurn(index) {
     if (!this.updateBoard(index)) return
+    if (this.gameState !== 'ongoing') return
     if (this.checkForWin()) {
       this.currPlayer.increaseWins()
+      this.gameState = 'win'
       // change gameState
       // win logic
       //put this.reset(in setTimeout())
@@ -41,6 +43,7 @@ class Game {
       this.reset()
       return // return true to only rerender on successful move?
     } else if (this.checkForTie()) {
+      this.gameState = 'tie'
       // change gameState
       // tie logic
       //put this.reset(in setTimeout())
