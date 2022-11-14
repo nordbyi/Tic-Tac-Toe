@@ -20,6 +20,13 @@
       inset 0 0 12px rgb(0, 89, 255),
       inset 0 0 16px rgb(0, 89, 255),
       inset 0 0 20px rgb(0, 229, 255);
+  --text-glow:
+      0 0 2px rgb(135, 203, 249),
+      0 0 4px rgb(135, 203, 249),
+      0 0 10px rgb(0, 89, 255),
+      0 0 25px rgb(0, 89, 255),
+      0 0 35px rgb(0, 89, 255),
+      0 0 57px rgb(0, 229, 255)
 }
 
 /* loading */
@@ -57,34 +64,33 @@ body {
   background-image: url('./assets/World_Map_glow.svg');
   background-repeat: no-repeat;
   background-size: 1425px;
+  display: flex;
+  justify-content: center;
 }
 
-/* Do i need to use a .glow class if everything glowing is text? */
-/* does .glow work with non-text elements? */
 p, 
 .glow {
   font-size: 30px;
   color: rgb(254, 254, 254);
-  text-shadow:
-      0 0 2px rgb(135, 203, 249),
-      0 0 4px rgb(135, 203, 249),
-      0 0 10px rgb(0, 89, 255),
-      0 0 25px rgb(0, 89, 255),
-      0 0 35px rgb(0, 89, 255),
-      0 0 57px rgb(0, 229, 255)
-      /* 0 0 70px rgb(0, 229, 255) */
+  text-shadow: var(--text-glow)
+}
+
+h1 {
+  font-size: 60px;
+  color: rgb(254, 254, 254);
+  text-shadow: var(--text-glow);
 }
 
 main {
   display: block flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 450px;
+  height: 550px;
   width: 600px;
   margin: 20px;
   border: solid 2px white;
   background-color: rgb(0, 0, 0);
-  box-shadow: var(--border-glow-effect)
+  box-shadow: var(--border-glow-effect);
 }
 
 .game-info {
@@ -94,30 +100,39 @@ main {
   margin: 10px
 }
 
+.board-container {
+  display: flex;
+  justify-content: center;
+}
+
 .game-board {
+  background-image: url('./assets/board-transparent-background.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 100px 100px 100px;
-  box-shadow: 
-      0 0 2px rgb(135, 203, 249),
-      0 0 4px rgb(135, 203, 249),
-      0 0 7px rgb(0, 89, 255),
-      0 0 12px rgb(0, 89, 255),
-      0 0 16px rgb(0, 89, 255),
-      0 0 20px rgb(0, 229, 255),
-      inset 0 0 2px rgb(135, 203, 249),
-      inset 0 0 4px rgb(135, 203, 249),
-      inset 0 0 7px rgb(0, 89, 255),
-      inset 0 0 12px rgb(0, 89, 255),
-      inset 0 0 16px rgb(0, 89, 255),
-      inset 0 0 20px rgb(0, 229, 255);
+  /* place-items: center; */
+  grid-template-columns: repeat(3, 155px);
+  grid-template-rows: repeat(3, 140px);
+  justify-content: center;
+  align-items: center;
+  /* box-shadow: var(--border-glow-effect) */
+  padding: 20px;
+  text-align: center;
 }
 
 .game-square {
-  background: black;
-  border: 2px solid white;
-  box-shadow: var(--border-glow-effect)
+  /* background: black; */
+  /* border: 2px solid white;
+  box-shadow: var(--border-glow-effect) */
 }
+
+/* .top-left,
+.top-middle,
+.center-left,
+.center-middle {
+  border-right: 2px solid white;
+  /* box-shadow: var(--border-glow-effect) */
 
 .hidden {
   display: none;
