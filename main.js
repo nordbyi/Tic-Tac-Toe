@@ -9,8 +9,16 @@ var friend = document.querySelector('.friend')
 var friendInput = document.querySelector('#friendInput')
 var beginGame = document.querySelector('.begin')
 var loadScreen = document.querySelector('.load')
-var body = document.querySelector('body')
 
+var body = document.querySelector('body')
+var main = document.querySelector('main')
+var gameBoard = document.querySelector('.game-board')
+var player1Info = document.querySelector('.player-1-info')
+var player2Info = document.querySelector('.player-2-info')
+var gameState = document.querySelector('.game-state')
+var gameSquares = document.querySelectorAll('.game-square')
+
+console.log(player1Info.children[0].innerText)
 typewriter(shallWe.innerText, shallWe, 0)
 
 loadInputForm.addEventListener('submit', askUserName)
@@ -20,6 +28,7 @@ friendForm.addEventListener('submit', nameFriend)
 var player1Name
 var player2Name // connect these
 var game = new Game(player1Name, player2Name)
+// create new game when last input is entered so that names are assigned
 
 function typewriter(text, html, i) {
   if(i <= text.length) {
@@ -44,7 +53,8 @@ function askUserName() {
       window.location.reload()
     }, 7000)
   }
-  loadInputForm.disabled() // hide inputs instead after form submission
+  loadInputForm.disabled() 
+  // hide inputs instead after form submission
 }
 
 function askFriend() {
@@ -71,8 +81,22 @@ function nameFriend() {
 
 function startGame() {
   loadScreen.classList.toggle('hidden')
+  main.classList.toggle('hidden')
   // body.classList.toggle('hidden')
 }
 
 // play game then update DOM
+
+function renderDOM() {
+ updateGameInfoDOM()
+}
+
+function updateGameInfoDOM(player) {
+  player1Info.children[0].innerText = game.player1.name
+  player1Info.children[1].innerText = game.player1.wins
+  player2Info.children[0].innerText = game.player2.name
+  player2Info.children[1].innerText = game.player2.wins
+  // switch block
+  console.log(player1Info.children[0].innerText)
+}
 
