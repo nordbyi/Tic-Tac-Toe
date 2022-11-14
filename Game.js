@@ -26,8 +26,8 @@ class Game {
   }
 
   executeTurn(index) {
-    if (!this.updateBoard(index)) return
     if (this.gameState !== 'ongoing') return
+    if (!this.updateBoard(index)) return
     if (this.checkForWin()) {
       this.currPlayer.increaseWins()
       this.gameState = 'win'
@@ -35,24 +35,25 @@ class Game {
       // win logic
       //put this.reset(in setTimeout())
 
-      // setTimeout(function {
-      //   this.reset()
-      //   re-renderFunction() // passed into executeTurn(index, renderFunction) might need to store function in a variable
-      // }, 5000)
+      setTimeout(() => {
+        this.reset()
+        console.log('this working?')
+        // re-renderFunction() // passed into executeTurn(index, renderFunction) might need to store function in a variable
+      }, 2900)
 
-      this.reset()
+      // this.reset()
       return // return true to only rerender on successful move?
     } else if (this.checkForTie()) {
       this.gameState = 'tie'
-      // change gameState
-      // tie logic
-      //put this.reset(in setTimeout())
-      this.reset()
+      
+      setTimeout(() => {
+        this.reset()
+      }, 2900)
       return // return true to only rerender on successful move?
     
     }
     this.changePlayer('currPlayer')
-    console.log(this.board)
+    // console.log(this.board)
     // return true to only rerender on successful move?
   }
 
