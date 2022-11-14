@@ -6,6 +6,29 @@
 
 }
 
+:root {
+  --border-glow-effect:
+      0 0 2px rgb(135, 203, 249),
+      0 0 4px rgb(135, 203, 249),
+      0 0 7px rgb(0, 89, 255),
+      0 0 12px rgb(0, 89, 255),
+      0 0 16px rgb(0, 89, 255),
+      0 0 20px rgb(0, 229, 255),
+      inset 0 0 2px rgb(135, 203, 249),
+      inset 0 0 4px rgb(135, 203, 249),
+      inset 0 0 7px rgb(0, 89, 255),
+      inset 0 0 12px rgb(0, 89, 255),
+      inset 0 0 16px rgb(0, 89, 255),
+      inset 0 0 20px rgb(0, 229, 255);
+  --text-glow:
+      0 0 2px rgb(135, 203, 249),
+      0 0 4px rgb(135, 203, 249),
+      0 0 10px rgb(0, 89, 255),
+      0 0 25px rgb(0, 89, 255),
+      0 0 35px rgb(0, 89, 255),
+      0 0 57px rgb(0, 229, 255)
+}
+
 /* loading */
 
 load-screen {
@@ -41,20 +64,75 @@ body {
   background-image: url('./assets/World_Map_glow.svg');
   background-repeat: no-repeat;
   background-size: 1425px;
+  display: flex;
+  justify-content: center;
 }
 
+p, 
 .glow {
   font-size: 30px;
-  color: rgb(207, 229, 244);
-  text-shadow:
-      0 0 2px rgb(135, 203, 249),
-      0 0 4px rgb(135, 203, 249),
-      0 0 10px rgb(0, 89, 255),
-      0 0 25px rgb(0, 89, 255),
-      0 0 35px rgb(0, 89, 255),
-      0 0 57px rgb(0, 229, 255)
-      /* 0 0 70px rgb(0, 229, 255) */
-  }
+  color: rgb(254, 254, 254);
+  text-shadow: var(--text-glow)
+}
+
+h1 {
+  font-size: 60px;
+  color: rgb(254, 254, 254);
+  text-shadow: var(--text-glow);
+}
+
+main {
+  display: block flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 550px;
+  width: 600px;
+  margin: 20px;
+  border: solid 2px white;
+  background-color: rgb(0, 0, 0);
+  box-shadow: var(--border-glow-effect);
+}
+
+.game-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px
+}
+
+.board-container {
+  display: flex;
+  justify-content: center;
+}
+
+.game-board {
+  background-image: url('./assets/board-transparent-background.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: grid;
+  /* place-items: center; */
+  grid-template-columns: repeat(3, 155px);
+  grid-template-rows: repeat(3, 140px);
+  justify-content: center;
+  align-items: center;
+  /* box-shadow: var(--border-glow-effect) */
+  padding: 20px;
+  text-align: center;
+}
+
+.game-square {
+  /* background: black; */
+  /* border: 2px solid white;
+  box-shadow: var(--border-glow-effect) */
+}
+
+/* .top-left,
+.top-middle,
+.center-left,
+.center-middle {
+  border-right: 2px solid white;
+  /* box-shadow: var(--border-glow-effect) */
 
 .hidden {
   display: none;

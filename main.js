@@ -2,7 +2,7 @@ var shallWe = document.querySelector('.shall-we')
 var loadInputForm = document.querySelector('#loadInputForm')
 var loadInput = document.querySelector('#loadInput')
 var greetings = document.querySelector('.greetings')
-var userNameForm = document.querySelector('#user-name-form')
+var userNameForm = document.querySelector('#userNameForm')
 var nameInput = document.querySelector('#nameInput')
 var friendForm = document.querySelector('#friendForm')
 var friend = document.querySelector('.friend')
@@ -18,8 +18,8 @@ userNameForm.addEventListener('submit', askFriend)
 friendForm.addEventListener('submit', nameFriend)
 
 var player1Name
-var player2Name
-var game = new Game()
+var player2Name // connect these
+var game = new Game(player1Name, player2Name)
 
 function typewriter(text, html, i) {
   if(i <= text.length) {
@@ -44,7 +44,7 @@ function askUserName() {
       window.location.reload()
     }, 7000)
   }
-  loadInputForm.disabled()
+  loadInputForm.disabled() // hide inputs instead after form submission
 }
 
 function askFriend() {
@@ -73,3 +73,6 @@ function startGame() {
   loadScreen.classList.toggle('hidden')
   // body.classList.toggle('hidden')
 }
+
+// play game then update DOM
+
