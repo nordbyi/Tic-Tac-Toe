@@ -15,7 +15,7 @@
       <p class="glow shall-we">SHALL WE PLAY A GAME? Y/N</p>
       <input class="glow" id="loadInput" autofocus maxlength="1">
     </form>
-    <form class="load-section hidden" id="user-name-form">
+    <form class="load-section hidden" id="userNameForm">
       <p class="glow greetings">GREETINGS PROFESSOR...:</p>
       <input class="glow" id="nameInput" autofocus maxlength="12">
     </form>
@@ -28,14 +28,12 @@
   <body>
     <main> 
       <!-- flex here column -->
-      <section>
+      <section class="game-info">
         <!-- flex-row player 1 and 2 name and wins, game state in middle-->
         <div>
           <p>player 1 name</p>
           <p>player 1 wins</p>
         </div>
-        <test-box>
-        </test-box>
         <div>
           <p>game state</p>
         </div>
@@ -44,8 +42,17 @@
           <p>player 2 wins</p>
         </div>
       </section>
-      <section>
+      <section class="game-board">
         <!-- main game board area -->
+        <div data-index="0" class="game-square"></div>
+        <div data-index="1" class="game-square"></div>
+        <div data-index="2" class="game-square"></div>
+        <div data-index="3" class="game-square"></div>
+        <div data-index="4" class="game-square"></div>
+        <div data-index="5" class="game-square"></div>
+        <div data-index="6" class="game-square"></div>
+        <div data-index="7" class="game-square"></div>
+        <div data-index="8" class="game-square"></div>
       </section>
       <section>
         <!-- taunting computer stuff here if time -->
