@@ -94,19 +94,30 @@ function renderDOM() {
 
 function updateGameInfoDOM(player) {
   player1Info.children[0].innerText = game.player1.name
-  player1Info.children[1].innerText = game.player1.wins
+  player1Info.children[1].innerText = `${game.player1.wins} Win${game.player1.wins !== 1 && 's'}`
   player2Info.children[0].innerText = game.player2.name
-  player2Info.children[1].innerText = game.player2.wins
+  player2Info.children[1].innerText = `${game.player2.wins} Win${game.player2.wins !== 1 && 's'}`
   // switch block
   console.log(player1Info.children[0].innerText)
+
+  switch(game.gameState) {
+    case 'ongoing':
+      gameState.innerHTML = `<p>${game.currPlayer.name}'s Turn</p>`
+      break
+    case 'win':
+      gameState.innerHTML = `<p>${this.currPlayer.name} Wins!</p>`
+      break
+    case 'tie':
+      gameState.innerHTML = `<p>It's a Tie!</p>`
+  }
 }
 
 function updateGameBoardDOM() {
   console.log(gameBoard.children[0].innerText)
-  game.board.forEach((el, i, arr) => {
+  game.board.forEach((el, i) => {
     gameBoard.children[i].innerHTML = `<h1>${el.token ? el.token: ''}</h1>`
   })
   console.log(gameBoard.children[0].innerText)
 }
 
-updateGameBoardDOM()
+renderDOM()
