@@ -88,7 +88,8 @@ function startGame() {
 // play game then update DOM
 
 function renderDOM() {
- updateGameInfoDOM()
+  updateGameInfoDOM()
+  updateGameBoardDOM()
 }
 
 function updateGameInfoDOM(player) {
@@ -100,3 +101,12 @@ function updateGameInfoDOM(player) {
   console.log(player1Info.children[0].innerText)
 }
 
+function updateGameBoardDOM() {
+  console.log(gameBoard.children[0].innerText)
+  game.board.forEach((el, i, arr) => {
+    gameBoard.children[i].innerHTML = `<h1>${el.token ? el.token: ''}</h1>`
+  })
+  console.log(gameBoard.children[0].innerText)
+}
+
+updateGameBoardDOM()
