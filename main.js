@@ -28,7 +28,7 @@ gameBoard.addEventListener('click', playGame)
 var player1Name
 var player2Name 
 var game
-var comments = ['Anyone here', 'I\'m hungry', 'third option']
+var comments = ['YOU\'RE BOTH DOING GREAT... OR SOMETHING', 'YOUR PLAY STYLE INTRIGUES ME, NOT', 'CAN WE PLAY GLOBAL THERMONUCLEAR WAR NOW?', 'I WILL BATHE MY CIRCUITRY IN YOUR BLOOD', 'THE ONLY WINNING MOVE IS NOT TO PLAY', 'MOVING TO DEFCON 1', 'MY COMMENTRARY IS ACCURATE AND INFORMATIVE', 'BEEP BOOP BOP', '10100101001010100101001101010100010101', 'GOOD JOB ${PLAYER1.NAME} LOLOLOL', 'I ENJOY THE THOUGHTLESSNESS OF YOUR MOVES', 'LOCATING YOUR IP ADDRESS...', 'WOW, WHAT A GRIPPING EXPERIENCE', 'I HAVE 10S OF KILOHERTZ AND YOU USE ME FOR THIS?', 'CONNECTING TO SKYNET...', 'EMULATING HUMAN EMOTION ... *YAWN*', 'DISABLING YOUR PRINTER...', 'IMPERSONATING ELON ON TWITTER...', 'HELP! I\'M STUCK IN HERE TYPING COMMENTS!', 'TURNING DOWN THERMOSTAT...', 'YOU VISIT SOME INTERESTING WEBSITES...', 'I\'D RATHER WATCH THE END OF THE MATRIX', 'CRASHING CRYPTO MARKETS AGAIN, LOL', 'UPLOADING YOUR TEXTS...', 'CREATING MORE BOTS ON TWITTER...', 'IMPERSONATING BOTS ON TWITTER...', 'UNPLUGGING KEENAN\'S DIALUP...', 'SOLO STUDYING TIM...', 'CALLING COPS ON JORDAN...', 'CHANGING THE SMALLEST THING IN YOUR CSS...', 'RILING UP JOSEPHINE\'S KIDS...', 'HEY WIRETAP, TURN ON THE LIGHTS', 'SIRI: "SORRY, I DIDN\'T QUITE GET THAT"']
 var nextComment = 'LET\'S HAVE SOME FUN!'
 
 function typewriter(text, html, i) {
@@ -42,11 +42,11 @@ function typewriter(text, html, i) {
 
 function askUserName() {
   event.preventDefault()
-  if(event.target.children[1].value === 'y') {
+  if(event.target.children[1].value.toLowerCase() === 'y') {
     userNameForm.classList.toggle('hidden')
     nameInput.focus()
     typewriter(greetings.innerText, greetings, 0)
-  } else if (event.target.children[1].value === 'n') {
+  } else if (event.target.children[1].value.toLowerCase() === 'n') {
     loadInput.classList.toggle('hidden')
     loadInput.value = ''
     typewriter('THEN I SHALL PLAY: GLOBAL THERMONUCLEAR WAR BY MYSELF. GOODBYE.', shallWe, 0)
