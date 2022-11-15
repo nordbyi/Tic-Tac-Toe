@@ -122,6 +122,17 @@ main {
   padding-top: 33px;
 }
 
+.comments {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+  width: 600px;
+  height: 60px;
+  border: solid 2px white;
+  box-shadow: var(--border-glow-effect);
+  padding-left: 10px;
+}
+
 .hidden {
   display: none;
 }
