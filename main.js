@@ -27,11 +27,8 @@ friendForm.addEventListener('submit', nameFriend)
 gameBoard.addEventListener('click', playGame)
 
 var player1Name
-var player2Name // connect these
-var game = new Game(player1Name, player2Name)
-// create new game when last input is entered so that names are assigned
-// renderDOM after last input as well
-renderDOM()
+var player2Name 
+var game
 
 function typewriter(text, html, i) {
   if(i <= text.length) {
@@ -56,24 +53,23 @@ function askUserName() {
       window.location.reload()
     }, 7000)
   }
-  loadInputForm.disabled() 
   // hide inputs instead after form submission
 }
 
 function askFriend() {
   event.preventDefault()
+  player1Name = nameInput.value.toUpperCase()
+  nameInput.classList.toggle('hidden')
   friendForm.classList.toggle('hidden')
   friendInput.focus()
-  // dynamically add player 1 name to friend.innerText
   typewriter(friend.innerText, friend, 0)
 }
 
 function nameFriend() {
   event.preventDefault()
-  if(event.target.children[1].value === 'y') {
-    
-  }
-  // use name to instatiate player 1 class
+  player2Name = friendInput.value.toUpperCase()
+  game = new Game(player1Name, player2Name)
+  renderDOM()
   beginGame.classList.toggle('hidden')
   typewriter(beginGame.innerText, beginGame, 0)
   setTimeout(function() {
@@ -85,18 +81,17 @@ function nameFriend() {
 function startGame() {
   loadScreen.classList.toggle('hidden')
   main.classList.toggle('hidden')
-  // body.classList.toggle('hidden')
 }
 
 function playGame() {
   var index = +event.target.closest('.game-square').dataset.index
   game.executeTurn(index)
   renderDOM()
-  if(game.gameState !== 'ongoing') {
+  if (game.gameState !== 'ongoing') {
     setTimeout(function() {
     renderDOM()
-  }, 3000)
-}
+    }, 3000)
+  }
 }
 
 function renderDOM() {
@@ -111,13 +106,13 @@ function updateGameInfoDOM(player) {
   player2Info.children[1].innerText = `${game.player2.wins} Win${game.player2.wins !== 1 ? 's' : ''}`
   switch(game.gameState) {
     case 'ongoing':
-      gameState.innerHTML = `<p>${game.currPlayer.name}'s Turn</p>`
+      gameState.innerHTML = `<p>${game.currPlayer.name}'S TURN</p>`
       break
     case 'win':
-      gameState.innerHTML = `<p>${game.currPlayer.name} Wins!</p>`
+      gameState.innerHTML = `<p>${game.currPlayer.name} WINS!</p>`
       break
     case 'tie':
-      gameState.innerHTML = `<p>It's a Tie!</p>`
+      gameState.innerHTML = `<p>IT'S A TIE!</p>`
   }
 }
 
@@ -126,4 +121,3 @@ function updateGameBoardDOM() {
     gameBoard.children[i].innerHTML = `<h1>${el.token ? el.token : ''}</h1>`
   })
 }
-
