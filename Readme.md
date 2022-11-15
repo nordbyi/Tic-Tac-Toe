@@ -10,7 +10,7 @@ A webpage that you can use to play tic-tac-toe with another person (or by yourse
 4. On your terminal, `open index.html`
 
 ### Preview of the Game:
-[project preview](./assets/91962692-A39C-4AEA-9CE2-CF87914A6112.jpeg)
+[project preview](https://github.com/nordbyi/Tic-Tac-Toe/blob/main/assets/91962692-A39C-4AEA-9CE2-CF87914A6112.jpeg)
 
 ### Context:
 This is the final project for mod 1 at Turing School of Software & Design's Front End Engineering Program. I had 8 days to complete the project.  It took me about 20 hours (with a lot of that time re-learning photoshop and making the loading page for fun).
