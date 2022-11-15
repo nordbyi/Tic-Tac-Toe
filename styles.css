@@ -45,9 +45,7 @@ input {
   color: rgb(135, 203, 249);
   outline: none;
   border: none;
-  /* margin: 10px; */
   margin-left: 10px;
-  margin-bottom: 40px;
 }
 
 .load {
@@ -59,6 +57,8 @@ input {
 .load-section {
   display: flex;
 }
+
+/* Game Area */
 
 body {
   background-color: black;
@@ -112,19 +112,14 @@ main {
   background-repeat: no-repeat;
   background-position: center;
   display: grid;
-  /* place-items: center; */
   grid-template-columns: repeat(3, 155px);
   grid-template-rows: repeat(3, 140px);
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* box-shadow: var(--border-glow-effect) */
   padding: 20px;
   text-align: center;
 }
 
 .game-square {
   padding-top: 33px;
-  /* border: 1px solid red; */
 }
 
 .hidden {
