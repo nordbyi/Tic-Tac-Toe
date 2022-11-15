@@ -9,7 +9,6 @@ var friend = document.querySelector('.friend')
 var friendInput = document.querySelector('#friendInput')
 var beginGame = document.querySelector('.begin')
 var loadScreen = document.querySelector('.load')
-
 var body = document.querySelector('body')
 var main = document.querySelector('main')
 var gameBoard = document.querySelector('.game-board')
@@ -23,7 +22,6 @@ typewriter(shallWe.innerText, shallWe, 0)
 loadInputForm.addEventListener('submit', askUserName)
 userNameForm.addEventListener('submit', askFriend)
 friendForm.addEventListener('submit', nameFriend)
-
 gameBoard.addEventListener('click', playGame)
 
 var player1Name
@@ -32,12 +30,11 @@ var game
 
 function typewriter(text, html, i) {
   if(i <= text.length) {
-    // console.log(text.substring(0, i))
     html.innerText = text.substring(0, i)
     setTimeout(function() {
       typewriter(text, html, i + 1)
     }, 75)
-  } else {console.log('done')}
+  }
 }
 
 function askUserName() {
@@ -47,18 +44,19 @@ function askUserName() {
     nameInput.focus()
     typewriter(greetings.innerText, greetings, 0)
   } else if (event.target.children[1].value === 'n') {
+    loadInput.classList.toggle('hidden')
     loadInput.value = ''
     typewriter('THEN I SHALL PLAY: GLOBAL THERMONUCLEAR WAR BY MYSELF. GOODBYE.', shallWe, 0)
     setTimeout(function() {
       window.location.reload()
     }, 7000)
   }
-  // hide inputs instead after form submission
 }
 
 function askFriend() {
   event.preventDefault()
   player1Name = nameInput.value.toUpperCase()
+  greetings.innerText += ` ${player1Name}`
   nameInput.classList.toggle('hidden')
   friendForm.classList.toggle('hidden')
   friendInput.focus()
@@ -67,14 +65,15 @@ function askFriend() {
 
 function nameFriend() {
   event.preventDefault()
+  friendInput.classList.toggle('hidden')
   player2Name = friendInput.value.toUpperCase()
+  friend.innerText += ` ${player2Name}`
   game = new Game(player1Name, player2Name)
   renderDOM()
   beginGame.classList.toggle('hidden')
   typewriter(beginGame.innerText, beginGame, 0)
   setTimeout(function() {
     startGame()
-    console.log('got here')
   }, 3000)
 }
 
