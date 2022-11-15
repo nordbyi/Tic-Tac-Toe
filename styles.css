@@ -34,6 +34,7 @@
 load-screen {
   background-color: black;
   height: 100vh;
+  width: 100vw;
 }
 
 input {
@@ -44,9 +45,7 @@ input {
   color: rgb(135, 203, 249);
   outline: none;
   border: none;
-  /* margin: 10px; */
   margin-left: 10px;
-  margin-bottom: 40px;
 }
 
 .load {
@@ -58,6 +57,8 @@ input {
 .load-section {
   display: flex;
 }
+
+/* Game Area */
 
 body {
   background-color: black;
@@ -72,7 +73,7 @@ p,
 .glow {
   font-size: 30px;
   color: rgb(254, 254, 254);
-  text-shadow: var(--text-glow)
+  text-shadow: var(--text-glow);
 }
 
 h1 {
@@ -111,28 +112,26 @@ main {
   background-repeat: no-repeat;
   background-position: center;
   display: grid;
-  /* place-items: center; */
   grid-template-columns: repeat(3, 155px);
   grid-template-rows: repeat(3, 140px);
-  justify-content: center;
-  align-items: center;
-  /* box-shadow: var(--border-glow-effect) */
   padding: 20px;
   text-align: center;
 }
 
 .game-square {
-  /* background: black; */
-  /* border: 2px solid white;
-  box-shadow: var(--border-glow-effect) */
+  padding-top: 33px;
 }
 
-/* .top-left,
-.top-middle,
-.center-left,
-.center-middle {
-  border-right: 2px solid white;
-  /* box-shadow: var(--border-glow-effect) */
+.comments {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+  width: 600px;
+  height: 60px;
+  border: solid 2px white;
+  box-shadow: var(--border-glow-effect);
+  padding-left: 10px;
+}
 
 .hidden {
   display: none;

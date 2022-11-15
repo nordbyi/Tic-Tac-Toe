@@ -1,9 +1,7 @@
 class Game {
   constructor(player1, player2) {
-    // this.player1 = player1
-    // this.player2 = player2
-    this.player1 = new Player('Turtle', 0, 'X')
-    this.player2 = new Player('Dolphin', 1, 'O')
+    this.player1 = new Player(player1, 'X')
+    this.player2 = new Player(player2, 'O')
     this.startingPlayer = this.player1
     this.currPlayer = this.player1
     this.gameState = 'ongoing'
@@ -26,38 +24,30 @@ class Game {
   }
 
   executeTurn(index) {
+    if (this.gameState !== 'ongoing') return
     if (!this.updateBoard(index)) return
     if (this.checkForWin()) {
       this.currPlayer.increaseWins()
-      // change gameState
-      // win logic
-      //put this.reset(in setTimeout())
-
-      // setTimeout(function {
-      //   this.reset()
-      //   re-renderFunction() // passed into executeTurn(index, renderFunction) might need to store function in a variable
-      // }, 5000)
-
-      this.reset()
-      return // return true to only rerender on successful move?
+      this.gameState = 'win'
+      setTimeout(() => {
+        this.reset()
+      }, 2900)
+      return
     } else if (this.checkForTie()) {
-      // change gameState
-      // tie logic
-      //put this.reset(in setTimeout())
-      this.reset()
-      return // return true to only rerender on successful move?
-    
+      this.gameState = 'tie'
+      setTimeout(() => {
+        this.reset()
+      }, 2900)
+      return
     }
     this.changePlayer('currPlayer')
-    console.log(this.board)
-    // return true to only rerender on successful move?
   }
 
   updateBoard(index) {
     if (this.board[index].token === null) {
       this.board[index].token = this.currPlayer.token
       return true
-    } // might need to return false if I'm running into problems later
+    }
   }
 
   changePlayer(propertyStr) {
@@ -66,16 +56,10 @@ class Game {
     } else this[propertyStr] = this.player1
   }
 
-  // changeTurn() {
-  //   this.currPlayer = this.currPlayer === this.player1 ? this.player2 : this.player1
-  // }
-
   checkForWin() {
     var currPlayerIndices = this.board.filter(el => el.token === this.currPlayer.token).map(el => el.index)
-    // console.log(currPlayerIndices)
     for (var i = 0; i < this.winningIndices.length; i++) {
       if (this.winningIndices[i].every(el => currPlayerIndices.includes(el))) {
-        console.log(`${this.currPlayer.name} Wins!`)
         return true
       }
     }
@@ -83,7 +67,6 @@ class Game {
 
   checkForTie() {
     if (this.board.every(el => el.token !== null)) {
-      console.log('It\'s a tie!')
       return true
     }
   }
@@ -95,11 +78,7 @@ class Game {
     {index: 6, token: null}, {index: 7, token: null}, {index: 8, token: null}
     ]
     this.changePlayer('startingPlayer')
-    console.log('starting player: ', this.startingPlayer)
-    
     this.currPlayer = this.startingPlayer
-    console.log('current player: ', this.currPlayer)
-
     this.gameState = 'ongoing'
   }
 }
