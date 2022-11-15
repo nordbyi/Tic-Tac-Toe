@@ -16,6 +16,7 @@ var player1Info = document.querySelector('.player-1-info')
 var player2Info = document.querySelector('.player-2-info')
 var gameState = document.querySelector('.game-state')
 var gameSquares = document.querySelectorAll('.game-square')
+var comment = document.querySelector('.comment')
 
 typewriter(shallWe.innerText, shallWe, 0)
 
@@ -27,6 +28,8 @@ gameBoard.addEventListener('click', playGame)
 var player1Name
 var player2Name 
 var game
+var comments = ['Anyone here', 'I\'m hungry', 'third option']
+var nextComment = 'LET\'S HAVE SOME FUN!'
 
 function typewriter(text, html, i) {
   if(i <= text.length) {
@@ -74,7 +77,14 @@ function nameFriend() {
   typewriter(beginGame.innerText, beginGame, 0)
   setTimeout(function() {
     startGame()
+    cycleComments()
   }, 3000)
+}
+
+function cycleComments() {
+  typewriter(nextComment, comment, 0)
+  setTimeout(cycleComments, 5000)
+  nextComment = comments[Math.floor(Math.random() * comments.length)]
 }
 
 function startGame() {
