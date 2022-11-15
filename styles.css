@@ -73,7 +73,7 @@ p,
 .glow {
   font-size: 30px;
   color: rgb(254, 254, 254);
-  text-shadow: var(--text-glow)
+  text-shadow: var(--text-glow);
 }
 
 h1 {
