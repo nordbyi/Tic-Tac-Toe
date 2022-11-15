@@ -18,7 +18,6 @@ var player2Info = document.querySelector('.player-2-info')
 var gameState = document.querySelector('.game-state')
 var gameSquares = document.querySelectorAll('.game-square')
 
-console.log(player1Info.children[0].innerText)
 typewriter(shallWe.innerText, shallWe, 0)
 
 loadInputForm.addEventListener('submit', askUserName)
@@ -31,6 +30,8 @@ var player1Name
 var player2Name // connect these
 var game = new Game(player1Name, player2Name)
 // create new game when last input is entered so that names are assigned
+// renderDOM after last input as well
+renderDOM()
 
 function typewriter(text, html, i) {
   if(i <= text.length) {
@@ -87,11 +88,8 @@ function startGame() {
   // body.classList.toggle('hidden')
 }
 
-// play game then update DOM
-
 function playGame() {
   var index = +event.target.closest('.game-square').dataset.index
-  console.log(index)
   game.executeTurn(index)
   renderDOM()
   if(game.gameState !== 'ongoing') {
@@ -111,8 +109,6 @@ function updateGameInfoDOM(player) {
   player1Info.children[1].innerText = `${game.player1.wins} Win${game.player1.wins !== 1 ? 's' : ''}`
   player2Info.children[0].innerText = game.player2.name
   player2Info.children[1].innerText = `${game.player2.wins} Win${game.player2.wins !== 1 ? 's' : ''}`
-  // switch block
-
   switch(game.gameState) {
     case 'ongoing':
       gameState.innerHTML = `<p>${game.currPlayer.name}'s Turn</p>`
@@ -127,8 +123,7 @@ function updateGameInfoDOM(player) {
 
 function updateGameBoardDOM() {
   game.board.forEach((el, i) => {
-    gameBoard.children[i].innerHTML = `<h1>${el.token ? el.token: ''}</h1>`
+    gameBoard.children[i].innerHTML = `<h1>${el.token ? el.token : ''}</h1>`
   })
 }
 
-renderDOM()
