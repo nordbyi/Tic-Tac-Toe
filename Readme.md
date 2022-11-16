@@ -3,6 +3,9 @@
 ### Abstract:
 A webpage that you can use to play tic-tac-toe with another person (or by yourself... I feel you).  It's styled a little after 1983's WarGames for fun.  The game keeps track of each player's name and game wins. I added a 'loading screen' to give it some more character and as a way of inputing player names.  It has a basic data model and renders the DOM based exclusively on the data model as the game is played. I also added a comment section with an array of comments that are randomly displayed.  The JavaScript, HTML and CSS were all written from scratch. No external libraries or frameworks were used, just basic JaveScript, HTML and CSS :)
 
+### Deployed Site
+[GitHub Pages](https://nordbyi.github.io/Tic-Tac-Toe/)
+
 ### Installation Instructions:
 1. Fork this project to your own Github account
 2. Clone the repository to your local machine
